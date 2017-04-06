@@ -1,0 +1,114 @@
+/*font-family: 'Roboto', sans-serif;
+font-family: 'Amatic SC', cursive;
+font-family: 'Pangolin', cursive;*/
+
+body {
+	background-color:  #778899 ;
+	font-family: 'Roboto', sans-serif;
+}
+
+.main {
+	margin: 0 auto;
+	width: 450px;
+}
+
+.title{
+	color: black;
+	font-family: 'Pangolin', cursive; 
+}
+
+/*Styling the box for chat history*/
+.chatlog{
+	background-color: #FFFFFF;
+	height: 500px;
+	width: 450px;
+	overflow-y: scroll;
+	margin: 0 auto;
+	font-size: 16px;
+	display: inline-block;
+	font-family: 'Pangolin', cursive;
+}
+
+hr {
+	width: 80%;
+}
+
+
+/*Bot response*/
+.botimg {
+	border-radius: 50px;
+ 	padding-left: 5px;
+	display:table-cell; 
+	vertical-align:middle; 
+	text-align:center;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 10px 10px 0;
+}
+
+.botresponse {
+	padding-left: 10px;
+	display: inline-block;
+	width: 415px;
+}
+
+.botres {
+	display: inline-block;
+	width: 335px;
+}
+
+/* User response */
+.userresponse {
+	padding-left: 10px;
+	display: inline-block;
+	width: 415px;
+	background-color:  #F0F0F0;
+}
+.usrimg {
+	border-radius: 50px;
+ 	padding-left: 5px;
+	display:table-cell; 
+	vertical-align:middle; 
+	text-align:center;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 10px 10px 0;
+}
+.usrres {
+	display: inline-block;
+	width: 335px;
+}
+
+
+/*Styling the box where user */
+.userinput{
+	background-color: background-color: rgba(245, 245, 245, .4);
+	margin: 0 auto;
+	height: 70px;
+	width: 451px;
+	border-radius: 20px;
+	margin-top: -5px;
+	
+}
+
+.userinput .inputbox {
+	padding-left: 20px;
+	width: 300px;
+	height: 65px;
+	margin-left: : 0;
+ 	border: none;
+	outline: none;
+	background-color: 	
+}
+
+.inputbutton {
+	float: right;
+	clear: both;
+	margin: 0;
+	width: 130px;
+	height: 67px;
+ 	outline: none;
+	background-color: #555555;
+  	color: white;
+ 
+}
