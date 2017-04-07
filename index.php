@@ -9,17 +9,14 @@
 	if(isset($_POST['submit'])) {
 		$input = filter_input(INPUT_POST,'input', FILTER_SANITIZE_STRING);
 			adduserinput($input);
-			search_through_and_respond($input);
-	}else {
-		$currentstep = "start";
+			
+		search_through_and_respond($input);
 	}
-
-	echo $currentstep;
 
 //clear chat log
 	if(isset($_POST['clearbutton'])) {
 	clearchat();
-	$currentstep = "start";
+
 	}
 
 
