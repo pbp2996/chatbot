@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=shoppingcart';
+    $dsn = 'mysql:host=localhost;dbname=pizzabot';
     $username = 'root';
     $password = 'password2996';
 

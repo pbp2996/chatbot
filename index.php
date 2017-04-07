@@ -1,3 +1,25 @@
+<?php 
+	require_once('database.php');
+	require_once('functions.php')
+?>
+
+<?php
+
+//Adds user input to chat tabel 
+	if(isset($_POST['submit'])) {
+		$input = filter_input(INPUT_POST,'input', FILTER_SANITIZE_STRING);
+		{
+			adduserinput($input);
+		}
+	} else {
+		clearchat();
+	}
+
+
+//this will display the chat
+	$chats = getchatlog();
+
+?>
 
 
 <!DOCTYPE html>
@@ -17,42 +39,23 @@
 	<div class="main">
 		<div class="chatlog">
 
-			<div class="botresponse">
-				<div class="botimg">
-					<img src="images/bot.png" height="50px" width="50px" >
-				</div>
-				<div class="botres">
-					<p>Hi, I am Banjo</p>
-				</div>
-			</div> 
-		
-
-			<div class="userresponse">
-				<div class="usrimg" >
-					<img src="images/picx.png" height="50px" width="50px">
-				</div>
-				<div class="usrres">
-					<p>What can you do for me?</p>
-				</div>
-			</div> 
-
-			<div class="botresponse">
-				<div class="botimg">
-					<img src="images/bot.png" height="50px" width="50px" >
-				</div>
-				<div class="botres">
-					<p>Hi, I am Banjo, your PizzaaaBot  </p>
-				</div>
-			</div> 
-
-
+			<?php foreach ($chats as $chat) { ?>
+				<div class="response">
+					<div class="img">
+						<img src="images/<?php echo $chat['img'] ?>.png" height="50px" width="50px" >
+					</div>
+					<div class="res">
+						<p><?php echo $chat['text']; ?></p>
+					</div>
+				</div><hr> 
+			<?php } ?>	
 
 
 		</div>
 		<div class="userinput">
-			<form>
-				<input required class="inputbox" type="text" name="" style="background-color: rgba(245, 245, 245, .4)">
-				<input class="inputbutton" type="submit" name="" value="Enter">
+			<form action="index.php" method="post">
+				<input required class="inputbox" type="text" name="input" style="background-color: rgba(245, 245, 245, .4)">
+				<input class="inputbutton" type="submit" name="submit" value="Enter">
 			</form>
 		</div>
 	</div>
