@@ -1,6 +1,6 @@
 <?php 
 	
-//function to display chatlog
+//function to display chatlog via chat tabel
 function getchatlog() {
 	include('database.php');
 
@@ -15,6 +15,7 @@ function getchatlog() {
 	}
 }
 
+//to add user input into chat tabel
 function adduserinput($input) {
 	include('database.php');
 	$query ="";
@@ -30,6 +31,7 @@ function adduserinput($input) {
 	}
 }
 
+//to clear chat bot if user has not typed anything
 function clearchat() {
 	include('database.php');
 	$query ="";
@@ -51,6 +53,35 @@ function clearchat() {
 	}
 
 }
+
+//to go through user string
+function search_through_and_respond($input) {
+	include('database.php');
+	global $currentstep;
+	
+	$response = "";
+	//step 1 validation - to add order 
+
+		if ($currentstep == "currentstep"){
+			if ((strpos($input,"order now") !== false) || (strpos($input,"place order") !== false) || (strpos($input,"order pizza") !== false)) {
+				$currentstep = "menu";
+				$response = "Lets do it, hit me with that order when you are ready...";
+			} else {
+				$response = "sorry we already did that";
+			}
+		}
+
+    $query = 'INSERT INTO chat
+                 (input, `text`, img)
+              VALUES
+                 ("bot", :response, "bot" )';
+	$statement = $db->prepare($query);
+	$statement->bindValue(':response', $response);
+	$statement->execute();
+	$statement->closeCursor();	
+	
+}
+
 
 
 ?>
